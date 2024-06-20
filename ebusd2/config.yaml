@@ -1,11 +1,8 @@
-name: "ebusd add-on"
+name: "ebusd add-on (2)"
 version: "1.0.0"
-slug: "ebusd"
-description: >
-  This Add-on runs eBUSd, a daemon for handling communication with eBUS devices
-  connected to a 2-wire bus system (“energy bus” used by numerous heating systems)
-  USB and network eBUSd adapters are supported.
-url: "https://github.com/piotrtobolski/ha-addons/tree/main/ebusd"
+slug: "ebusd2"
+description: "Same as ebusd add-on but allow creating second instance of ebusd on a single HA machine"
+url: "https://github.com/piotrtobolski/ha-addons/tree/main/ebusd2"
 arch:
   - aarch64
   - amd64
@@ -28,7 +25,7 @@ ports_description:
 options:
   scanconfig: true
   loglevel_all: "notice"
-  mqtttopic: "ebusd"
+  mqtttopic: "ebusd2"
   mqttint: "/etc/ebusd/mqtt-hassio.cfg"
   mqttjson: true
 schema:
