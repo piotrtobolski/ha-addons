@@ -1,7 +1,7 @@
 name: "ebusd add-on (2)"
 version: "1.0.0"
 slug: "ebusd2"
-description: "Same as ebusd add-on but allow creating second instance of ebusd on a single HA machine"
+description: "Same as ebusd add-on but allow creating second instance of ebusd on a single HA machine."
 url: "https://github.com/piotrtobolski/ha-addons/tree/main/ebusd2"
 arch:
   - aarch64
