@@ -4,7 +4,7 @@ slug: "ebusd"
 description: >
   This add-on runs ebusd, a daemon for handling communication with eBUS devices
   connected to a 2-wire bus system (“energy bus” used by numerous heating systems)
-  USB and network ebusd adapters are supported.
+  USB and network ebusd adapters are supported
 url: "https://github.com/piotrtobolski/ha-addons/tree/main/ebusd"
 arch:
   - aarch64
