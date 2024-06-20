@@ -1,5 +1,5 @@
-name: "ebusd add-on"
-version: "1.0.0"
+name: "ebusd add-on test"
+version: "1.0.1"
 slug: "ebusd"
 description: >
   This Add-on runs eBUSd, a daemon for handling communication with eBUS devices
@@ -13,3 +13,55 @@ arch:
   - i386
 init: false
 # image: "ghcr.io/piotrtobolski/{arch}-addon-ebusd"
+startup: services
+services:
+  - mqtt:need
+uart: true
+map:
+  - addon_config:rw
+ports:
+  8888/tcp: null
+  8889/tcp: null
+ports_description:
+  8888/tcp: TCP client port
+  8889/tcp: HTTP client port (HTTP must be activated in config)
+options:
+  scanconfig: true
+  loglevel_all: "notice"
+  mqtttopic: "ebusd"
+  mqttint: "/etc/ebusd/mqtt-hassio.cfg"
+  mqttjson: true
+schema:
+  mode: "list(enh|ens|udp)?"
+  device: "device(subsystem=tty)?"
+  network_device: "str?"
+  latency: "int(0,10000)?"
+  pollinterval: "int(0,3600)?"
+  http: "bool?"
+  readonly: "bool?"
+  scanconfig: "bool?"
+  configpath: "str?"
+  commandline_options: "str?"
+  accesslevel: "str?"
+  logdir_name: "str?"
+  logdir_files_number: "int?"
+  logdir_files_size: "int?"
+  loglevel_all: "list(error|notice|info|debug)?"
+  loglevel_network: "list(error|notice|info|debug)?"
+  loglevel_bus: "list(error|notice|info|debug)?"
+  loglevel_update: "list(error|notice|info|debug)?"
+  loglevel_main: "list(error|notice|info|debug)?"
+  loglevel_other: "list(error|notice|info|debug)?"
+  mqtthost: "str?"
+  mqttport: "int?"
+  mqttuser: "str?"
+  mqttpass: "str?"
+  mqttjson: "bool?"
+  mqttlog: "bool?"
+  mqttretain: "bool?"
+  mqttint: "str?"
+  mqttvar: "str?"
+  mqtttopic: "str?"
+  lograwdata: "bool?"
+  lograwdatafile: "str?"
+  lograwdatasize: "int?"

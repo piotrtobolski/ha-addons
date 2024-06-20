@@ -10,4 +10,5 @@ labels:
   org.opencontainers.image.source: "https://github.com/piotrtobolski/ha-addons"
   org.opencontainers.image.licenses: "Apache License 2.0"
 args:
-  TEMPIO_VERSION: "2021.09.0"
+  BASHIO_VERSION: 0.16.2
+  TEMPIO_VERSION: 2021.09.0
