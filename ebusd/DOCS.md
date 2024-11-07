@@ -18,24 +18,25 @@ The steps **Build and Install are handled by this addon**. You'll need to **conf
 
 MQTT discovery is now automatically configured.  When you start the add-on the global readings (uptime, signal status etc.) will be added to Home Assistant automatically under a device named ebusd.  After around 5 minutes any readings that are being polled, either via an MQTT request or by editing your config files, will be added to Home Assistant automatically.  The device name will be ebusd {circuit} - e.g. "ebusd bai".
 
-The mqttvar option can be used to inject MQTT variables or the [mqtt-hassio.cfg](https://github.com/john30/ebusd/blob/master/contrib/etc/ebusd/mqtt-hassio.cfg) can be edited and saved in your /config folder.
+The mqttvar option can be used to inject MQTT variables or the [mqtt-hassio.cfg](https://github.com/john30/ebusd/blob/master/contrib/etc/ebusd/mqtt-hassio.cfg) can be edited and saved in your `/addon_configs/ADDON_SLUG` folder.
 
 For more info please see the eBUSd docs:
  - [MQTT Integration](https://github.com/john30/ebusd/wiki/MQTT-integration)
  - [MQTT Discovery](https://github.com/john30/ebusd/discussions/518)
 
-**Top tips:** 
+**Top tips:**
 
 - If you send an MQTT get message with payload "?1" eBUSd will automatically poll that reading every 30 seconds and publish via MQTT. For example: ```mosquitto_pub -t ebusd/bai/FlowTemp/get -m ?1```
-- Git clone the ebusd-configuration files to your /config folder and edit the config files for your heating system.  Add a number 1-9 (1 high priority, 9 low prioirty) after the r at the start of each line and eBUSd will poll that reading automatically.
+- Git clone the ebusd-configuration files to your `/addon_configs/ADDON_SLUG` folder and edit the config files for your heating system.  Add a number 1-9 (1 high priority, 9 low prioirty) after the r at the start of each line and eBUSd will poll that reading automatically.
 - Once your heating system has been detected change the device name from "ebusd bai" to the name of your boiler e.g. "ecoTEC pro"
 - If some polled readings do not show up in Home Assistant it might be because mqtt-hassio.cfg is configured to filter them out.  Try setting to mqttvar to ```"filter-name="``` and this will remove any filters so you can debug the issue.
+- To get `ADDON_SLUG` see URL of your ebusd addon page. It should be something like `https://ip:port/hassio/addon/ADDON_SLUG/info`
 
 ## Custom CSV or MQTT cfg files:
 
-To use custom config files you can use the configpath option. You can create a local copy of https://github.com/john30/ebusd-configuration in your "/config" folder and change configpath to e.g. "/config/ebusd-configuration/latest/en".  Custom CSV files must be in the /config folder.
+To use custom config files you can use the configpath option. You can create a local copy of https://github.com/john30/ebusd-configuration in your `/addon_configs/ADDON_SLUG/ebusd-configuration` folder and change configpath to e.g. `/config/ebusd-configuration/latest/en`.  Custom CSV files must be in the `/addon_configs/ADDON_SLUG` folder.
 
-Similarly for MQTT create config file in "/config" folder and link it using the --mqttint=/config/YOUR_FILE_PATH option
+Similarly for MQTT create config file in `/addon_configs/ADDON_SLUG/YOUR_FILE_PATH` folder and link it using the `--mqttint=/config/YOUR_FILE_PATH` option
 
 ## HTTP and TCP client Access
 
@@ -49,7 +50,7 @@ Where ```X.X.X.X``` is the address of the ebusd add-on.
 
 ## Running ebusd and ebusctl directly
 
-To run ebusctl and/or ebusd directly (as suggested on other forums for debugging purposses) you need to SSH into the Docker container. For this you need the [**Advanced** SSH & Web Terminal](https://github.com/hassio-addons/addon-ssh) (not the standard one). 
+To run ebusctl and/or ebusd directly (as suggested on other forums for debugging purposses) you need to SSH into the Docker container. For this you need the [**Advanced** SSH & Web Terminal](https://github.com/hassio-addons/addon-ssh) (not the standard one).
 
 After getting the addon, you need to set a password in the configuration of the SSH addon otherwise it will not start.
 
@@ -69,7 +70,7 @@ For example ``` --initsend --dumpconfig```
 
 ## Network eBUS adapter support
 
-This release now fully supports wireless/network [eBUS adapters](https://adapter.ebusd.eu/index.en.html). The configuration options has changed from custom_device to network_device.
+This release fully supports wireless/network [eBUS adapters](https://adapter.ebusd.eu/index.en.html). The configuration options has changed from `custom_device` to `network_device`.
 
 For example ```network_device: enh:Y.Y.Y.Y:9999```
 Where ```Y.Y.Y.Y``` is the address of the eBUS asapter.
