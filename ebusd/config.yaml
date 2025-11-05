@@ -1,5 +1,5 @@
 name: "ebusd add-on"
-version: "1.0.0"
+version: "1.1.0"
 slug: "ebusd"
 description: >
   This add-on runs ebusd, a daemon for handling communication with eBUS devices
