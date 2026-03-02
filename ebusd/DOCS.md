@@ -1,5 +1,7 @@
 # Home Assistant Add-on: eBUSd
 
+> **Deprecated:** This add-on is deprecated. Consider using [micro-ebusd](https://token.ebusd.eu) instead, which runs directly on eBUS Adapter hardware and integrates with Home Assistant via MQTT Discovery — no separate daemon or add-on needed.
+
 This is to run [ebusd](http://ebusd.eu) as supervisor addon (docker container) in Home Assistant OS.
 
 ## How to run ebusd

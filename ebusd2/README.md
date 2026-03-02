@@ -1,5 +1,7 @@
 # Home Assistant Add-on: ebusd2
 
+> **Deprecated:** This add-on is deprecated. Consider using [micro-ebusd](https://token.ebusd.eu) instead, which runs directly on eBUS Adapter hardware and integrates with Home Assistant via MQTT Discovery — no separate daemon or add-on needed.
+
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
 ![Supports armhf Architecture][armhf-shield]
